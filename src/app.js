@@ -3,6 +3,7 @@ const app = express()
 
 // rotas
 const index = require("./routes/index") // criei a const que vai requisitar essa rota
+const tarefas = require("./routes/tarefasRoute")
 
 
 app.use(function(req, res, next) {
@@ -15,5 +16,6 @@ app.use(function(req, res, next) {
 })
 
 app.use("/", index) // e aqui eu digo que será usado 
-
+app.use("/tarefas", tarefas)
+    
 module.exports = app
