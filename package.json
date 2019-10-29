@@ -18,5 +18,8 @@
   "homepage": "https://github.com/mararosa/n3-backend-projeto-pratico#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
   }
 }
