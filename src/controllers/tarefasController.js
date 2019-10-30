@@ -1,4 +1,4 @@
-const tarefas = require("../model/tarefas.json")
+const tarefas = require("../model/tarefas.json") 
 
 exports.get = (req, res) => {
     console.log(req.url)
@@ -11,4 +11,13 @@ exports.get = (req, res) => {
         res.status(200).send(tarefas.find(tarefas => tarefas.id == id))
     }
        res.redirect(301, "https://en.wikipedia.org/wiki/Man-in-the-middle_attack")
+  }
+
+  exports.getConcluido = (req, res) => {
+    const tarefasConcluidas = tarefas.filter(tarefa => {
+      console.log(tarefa)
+       return tarefa.concluido == "true"
+    })
+  
+    res.status(200).send(tarefasConcluidas)
   }
