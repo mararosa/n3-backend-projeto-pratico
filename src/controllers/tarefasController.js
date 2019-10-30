@@ -21,3 +21,14 @@ exports.get = (req, res) => {
   
     res.status(200).send(tarefasConcluidas)
   }
+
+  exports.getByNomeColaborador = (req, res) => {
+    const nome = req.params.nomeColaborador
+    console.log(nome);
+    const funcionarios = tarefas.filter(funcionarios => {
+      
+      return funcionarios.nomeColaborador == nome
+    })
+  
+    res.status(200).send(funcionarios)
+  }

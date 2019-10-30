@@ -7,6 +7,8 @@ router.get("/", controller.get)
 router.get("/tarefas", controller.get)
 router.get("/concluido", controller.getConcluido)
 router.get("/:id", controller.getById)
+router.get("/funcionarios/:nomeColaborador", controller.getByNomeColaborador)
+
 
 
 // torna disponivel para toda aplicacao
