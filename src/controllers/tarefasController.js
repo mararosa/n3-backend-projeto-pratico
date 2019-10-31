@@ -14,9 +14,9 @@ exports.get = (req, res) => {
   }
 
   exports.getConcluido = (req, res) => {
-    const tarefasConcluidas = tarefas.filter(tarefa => {
+    const tarefasConcluidas = tarefas.filter(verificarConcluidas => {
       console.log(tarefa)
-       return tarefa.concluido == "true"
+       return verificarConcluidas.concluido == "true"
     })
   
     res.status(200).send(tarefasConcluidas)
@@ -24,10 +24,9 @@ exports.get = (req, res) => {
 
   exports.getByNomeColaborador = (req, res) => {
     const nome = req.params.nomeColaborador
-    console.log(nome);
-    const funcionarios = tarefas.filter(funcionarios => {
+    const funcionarios = tarefas.filter(verificarNome => {
       
-      return funcionarios.nomeColaborador == nome
+      return verificarNome.nomeColaborador == nome
     })
   
     res.status(200).send(funcionarios)
