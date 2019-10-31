@@ -22,7 +22,7 @@ exports.get = (req, res) => {
     res.status(200).send(tarefasConcluidas)
   }
 
-  exports.getByNomeColaborador = (req, res) => {
+  exports.getByNome = (req, res) => {
     const nome = req.params.nomeColaborador
     const funcionarios = tarefas.filter(verificarNome => {
       
