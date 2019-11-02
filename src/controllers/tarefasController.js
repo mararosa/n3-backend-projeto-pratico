@@ -10,7 +10,7 @@ exports.getById = (req, res) => {
   if (id > 0 && id < 5) {
     res.status(200).send(tarefas.find(tarefas => tarefas.id == id));
   }
-  res.redirect(301, "https://en.wikipedia.org/wiki/Man-in-the-middle_attack");
+  res.redirect(303, "https://httpstatusdogs.com/303-see-other");
 };
 
 exports.getConcluido = (req, res) => {
