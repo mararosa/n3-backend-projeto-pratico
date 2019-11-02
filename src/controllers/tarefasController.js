@@ -29,18 +29,26 @@ exports.getByNome = (req, res) => {
 
   res.status(200).send(funcionarios);
 };
+////////////////////
 
-exports.getInclusao = (req, res) => {
-  const data = tarefas.sort(function(a, b) {
-    if (a.dataInclusao > b.dataInclusao) {
+function converterStringParaData(data){
+  const dataUsandoSplit = data.split("/");
+  const dataConcatenarTraco = dataUsandoSplit[1] + '-' + dataUsandoSplit[0] + '-' + dataUsandoSplit[2];
+  const dataConcatenada = new Date(dataConcatenarTraco);
+  return dataConcatenada;
+}
+
+  exports.getInclusao = (req, res) => {
+  const dataParaOrdenar = tarefas.sort(function(a, b) {
+    if (converterStringParaData(a.dataInclusao) < converterStringParaData(b.dataInclusao)) {
       return 1;
     }
-    if (a.dataInclusao < b.dataInclusao) {
+    if (converterStringParaData(a.dataInclusao) > converterStringParaData(b.dataInclusao)) {
       return -1;
     }
     // a must be equal to b
     return 0;
   });
 
-  res.status(200).send(data);
+  res.status(200).send(dataParaOrdenar);
 };
